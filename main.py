@@ -48,20 +48,20 @@ def displayProducts(app, productFrame):
         labelImage.grid(row=idx, column=0, padx=10, pady=10)
 
         label = tk.Label(productFrame, text=f"{product['Name']} - ₹{product['price']}",
-                         font=("Arial", 12), bg="#3B917B", fg="white")
+                         font=("Roboto", 14), bg="#3B917B", fg="white")
         label.grid(row=idx, column=1, padx=10, pady=10)
 
         button = tk.Button(productFrame, text="Add to Cart", command=lambda p=product: addToCart(p),
-                           padx=10, pady=5, bg="#2ecc71", fg="white", font=("Helvetica", 12, "bold"))
+                           padx=10, pady=5, bg="#2ecc71", fg="white", font=("Roboto", 14, "bold"))
         button.grid(row=idx, column=2, padx=10, pady=10)
 
 def viewCart():
     cartWindow = tk.Toplevel(app)
     cartWindow.title("Your Cart")
-    cartWindow.geometry("400x300")
-    cartWindow.configure(bg="#3B917B")
+    cartWindow.geometry("500x300")
+    cartWindow.configure(bg="#F3F3F3")
 
-    header = tk.Label(cartWindow, text="Product - Price", font=("Arial", 12, "bold"), bg="#ecf0f1")
+    header = tk.Label(cartWindow, text="Product - Price", font=("Roboto", 14, "bold"), bg="#ecf0f1")
     header.grid(row=0, column=0, padx=10, pady=10)
 
     for idx, item in enumerate(cart):
@@ -87,7 +87,7 @@ def showSuccessPopup():
     popup = tk.Toplevel(app)
     popup.title("Payment Successful")
     popup.geometry("300x150")
-    label = tk.Label(popup, text="Your payment was successful!", font=("Arial", 12))
+    label = tk.Label(popup, text="Your payment was successful!", font=("Roboto", 12))
     label.pack(pady=20)
     okButton = tk.Button(popup, text="OK", command=popup.destroy)
     okButton.pack(pady=10)
@@ -119,7 +119,7 @@ def showLoading():
 productFrame = tk.Frame(app, bg="#F3F3F3")
 productFrame.pack(side=tk.LEFT, padx=20)
 
-cartButton = tk.Button(app, text="View Cart", command=viewCart, padx=10, pady=5, bg="#EA9A79", fg="#fff", font=("Arial", 12, "bold"))
+cartButton = tk.Button(app, text="View Cart", command=viewCart, padx=10, pady=5, bg="#EA9A79", fg="#fff", font=("Roboto", 14, "bold"))
 cartButton.pack(side=tk.RIGHT, padx=20)
 
 displayProducts(app, productFrame)
