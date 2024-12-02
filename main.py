@@ -14,7 +14,7 @@ def main():
     app = tk.Tk()
     app.title("Silk Road")
     app.geometry("800x600")
-    app.configure(bg="#3498db") 
+    app.configure(bg="#F3F3F3") 
     return app
 
 app = main()
@@ -43,12 +43,12 @@ def displayProducts(app, productFrame):
         img = img.resize((100, 100))
         photo = ImageTk.PhotoImage(img)
 
-        labelImage = tk.Label(productFrame, image=photo, bg="#3498db")
+        labelImage = tk.Label(productFrame, image=photo, bg="#1F2123")
         labelImage.image = photo  # Prevent garbage collection
         labelImage.grid(row=idx, column=0, padx=10, pady=10)
 
         label = tk.Label(productFrame, text=f"{product['Name']} - ₹{product['price']}",
-                         font=("Arial", 12), bg="#3498db", fg="white")
+                         font=("Arial", 12), bg="#3B917B", fg="white")
         label.grid(row=idx, column=1, padx=10, pady=10)
 
         button = tk.Button(productFrame, text="Add to Cart", command=lambda p=product: addToCart(p),
@@ -59,7 +59,7 @@ def viewCart():
     cartWindow = tk.Toplevel(app)
     cartWindow.title("Your Cart")
     cartWindow.geometry("400x300")
-    cartWindow.configure(bg="#ecf0f1")
+    cartWindow.configure(bg="#3B917B")
 
     header = tk.Label(cartWindow, text="Product - Price", font=("Arial", 12, "bold"), bg="#ecf0f1")
     header.grid(row=0, column=0, padx=10, pady=10)
@@ -104,7 +104,7 @@ def setupMenu(app):
     helpMenu.add_command(label="About", command=lambda: messagebox.showinfo("About", "This is an eCommerce app\n\nAuthor: Aarnav"))
 
 def setupStatusBar(app):
-    status = tk.Label(app, text="Welcome to Silk Road!", bd=1, relief=tk.SUNKEN, anchor=tk.W)
+    status = tk.Label(app, text="Welcome to Silk Road!", bd=2, relief=tk.SUNKEN, anchor=tk.W)
     status.pack(side=tk.TOP, fill=tk.X)
 
 def showLoading():
@@ -116,10 +116,10 @@ def showLoading():
 
     app.after(2000, loading.destroy)
 
-productFrame = tk.Frame(app, bg="#3498db")
+productFrame = tk.Frame(app, bg="#F3F3F3")
 productFrame.pack(side=tk.LEFT, padx=20)
 
-cartButton = tk.Button(app, text="View Cart", command=viewCart, padx=10, pady=5, bg="#2980b9", fg="#fff", font=("Arial", 12, "bold"))
+cartButton = tk.Button(app, text="View Cart", command=viewCart, padx=10, pady=5, bg="#EA9A79", fg="#fff", font=("Arial", 12, "bold"))
 cartButton.pack(side=tk.RIGHT, padx=20)
 
 displayProducts(app, productFrame)
